@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大唐不夜城专业数字服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            min-height: 100vh;
+            background-image: url('https://img.zcool.cn/community/01e5ea5d8b8c1ca801209e1f9b1a7e.jpg@1280w_1l_2o_100sh.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #d4af37, #f1c40f, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::before, h1::after {
+            content: "❖";
+            color: #d4af37;
+            margin: 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            color: #d4af37;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 65%, rgba(212, 175, 55, 0.1) 100%);
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .service-card h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.5rem;
+        }
+        
+        .service-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .contact-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+        
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px dashed rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #d4af37, #f1c40f, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-card {
+            background: rgba(40, 40, 60, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            min-width: 250px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        
+        .contact-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: scale(1.05);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+            color: #d4af37;
+        }
+        
+        .contact-card p {
+            opacity: 0.8;
+        }
+        
+        .highlight {
+            color: #f1c40f;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            color: #d4af37;
+        }
+        
+        .chinese-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23d4af37" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @media (max-width: 768px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chinese-pattern"></div>
+    <div class="container">
+        <header>
+            <h1>大唐不夜城专业数字服务</h1>
+            <p class="subtitle">盛世繁华 · 数字赋能 · 专业服务</p>
+        </header>
+        
+        <div class="services">
+            <div class="service-card">
+                <h3>接码服务</h3>
+                <p>全球手机号码验证码接收服务，支持多平台多地区，稳定高效。</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>账号注册</h3>
+                <p>各类平台账号注册服务，包括但不限于微信、QQ、陌陌等社交平台。</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>实名认证</h3>
+                <p>专业实名认证服务，快速通过各类平台实名验证。</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>微信/QQ服务</h3>
+                <p>微信QQ账号相关服务，包括解封、养号、功能解锁等。</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>网站搭建</h3>
+                <p>专业网站建设服务，从个人博客到企业官网一站式解决。</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>AI换脸建模</h3>
+                <p>高端AI换脸技术，影视级效果，支持定制化需求。</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>专业P图</h3>
+                <p>专业级图片处理服务，包括修图、合成、特效等。</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>代收代付</h3>
+                <p>安全可靠的资金代收代付服务，解决跨境支付难题。</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>淘宝代买</h3>
+                <p>专业淘宝代购服务，帮您购买国内商品并国际配送。</p>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h2 class="contact-title">联系我们</h2>
+            <p>选择以下方式与我们取得联系，获取专业服务</p>
+            
+            <div class="contact-methods">
+                <div class="contact-card" onclick="window.open('https://t.me/JYQYW', '_blank')">
+                    <h3>业务联系</h3>
+                    <p>Telegram: <span class="highlight">@JYQYW</span></p>
+                    <p>点击直接跳转</p>
+                </div>
+                
+                <div class="contact-card" onclick="window.open('https://t.me/buyechengBOT', '_blank')">
+                    <h3>双向联系</h3>
+                    <p>Telegram Bot: <span class="highlight">@buyechengBOT</span></p>
+                    <p>点击直接跳转</p>
+                </div>
+                
+                <div class="contact-card" onclick="window.open('https://t.me/DSBYC', '_blank')">
+                    <h3>交流群组</h3>
+                    <p>Telegram群: <span class="highlight">@DSBYC</span></p>
+                    <p>点击直接跳转</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 大唐不夜城专业数字服务. 保留所有权利.</p>
+            <p style="margin-top: 0.5rem;">盛世长安 · 数字未来</p>
+        </footer>
+    </div>
+</body>
+</html>
